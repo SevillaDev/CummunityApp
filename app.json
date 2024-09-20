@@ -21,7 +21,8 @@
       },
       "permissions": [
         "INTERNET"
-      ]
+      ],
+      "package": "com.sevilladev.Cummunity"
     },
     "web": {
       "favicon": "./assets/favicon.png"
