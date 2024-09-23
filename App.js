@@ -6,6 +6,7 @@ import LoginScreen from './Screen/LoginScreen';
 import HomeScreen from './Screen/HomeScreen';
 import RegisterScreen from './Screen/RegisterScreen';
 import GlobalScreen from './Screen/GlobalScreen';
+import Global from './Screen/Global';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
             headerShown: true,
             headerBackVisible: false
           }} />
+           <Stack.Screen name="Global" component={Global} />
       </Stack.Navigator>
     </NavigationContainer>
   );

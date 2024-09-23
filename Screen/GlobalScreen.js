@@ -41,7 +41,9 @@ const GlobalScreen = ({ navigation }) => {
           <Icon name="logout" size={30} color="#3498db" />
         </TouchableOpacity>
         <View style={styles.headerTitleContainer}>
+          <TouchableOpacity onPress={() =>   navigation.navigate('Global')} style={styles.headerButton}>
           <Icon name="public" size={30} color="#3498db" />
+        </TouchableOpacity>
         </View>
       </View>
     </View>
