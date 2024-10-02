@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text, StyleSheet,TouchableOpacity,Alert } from 'react-native';
+import { View, TextInput, Button, Text, StyleSheet,TouchableOpacity,Alert, StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const RegisterScreen = ({ navigation }) => {
@@ -50,6 +50,7 @@ const RegisterScreen = ({ navigation }) => {
     };
   return (
     <View style={styles.container}>
+       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
       <Text style={styles.logo}>Cummunity</Text>
       <TextInput
         style={styles.input}

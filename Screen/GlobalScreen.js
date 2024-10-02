@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity ,StatusBar} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 const GlobalScreen = ({ navigation }) => {
 
@@ -30,6 +30,7 @@ const GlobalScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+     <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
       <FlatList
         data={cards}
         renderItem={renderItem}

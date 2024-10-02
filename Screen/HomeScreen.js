@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView,Image ,TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, ScrollView,Image ,TouchableOpacity , StatusBar} from 'react-native';
 import { Card, IconButton } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -40,6 +40,7 @@ const fetchUserName = async () => {
 
   return (
     <View style={styles.container}>
+       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
       <View style={styles.header}>
         <Text style={styles.greeting}>Hi {userName}  </Text>
         <Text style={styles.subHeader}>Welcome to Cummunity Home.</Text>

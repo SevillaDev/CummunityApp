@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {RefreshControl, View, StatusBar,Text, FlatList, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator, Alert, Modal, ViewBase } from 'react-native';
+import {RefreshControl, View, StatusBar,Text, FlatList, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator, Alert, Modal, ViewBase, StatusBar } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -176,7 +176,7 @@ fetchUserName();
 
   return (
     <View style={styles.container}>
-      <StatusBar></StatusBar>
+      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
       {loading ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
