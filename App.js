@@ -17,7 +17,11 @@ export default function App() {
         <Stack.Screen name="Login"
          component={LoginScreen}
          options={{ headerShown: false }} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} 
+         options={{
+          headerShown: true,
+          headerBackVisible: false
+        }}/>
         <Stack.Screen name="Register" component={RegisterScreen} />
         <Stack.Screen name="Salas" component={GlobalScreen}
           options={{

@@ -38,7 +38,7 @@ const LoginScreen = ({ navigation }) => {
         try {
           await AsyncStorage.setItem('userName', userName);
           await AsyncStorage.setItem('id', JSON.stringify(parseInt(id)));
-          navigation.navigate('Salas');
+          navigation.navigate('Home');
         } catch (error) {
           Alert.alert('Error', 'Failed to store user data');
         }

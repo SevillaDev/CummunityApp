@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const GlobalScreen = ({ navigation }) => {
 
   const cards = [
-    { title: 'Anime', logo: require('../img/gojo.png'), description: 'Comparte tu opinion acerca del anime.', route: 'SalaAnime' },
+    { title: 'Anime', logo: require('../img/gojo.png'), description: 'Comparte tu opinion acerca del anime.', route: 'Home' },
     { title: 'Music', logo: require('../img/music.png'), description: 'Comparte tu opinion acerca de la musica.' },
     { title: 'Games', logo: require('../img/pac.png'), description: 'Comparte tu opinion acerca de video juegos.' },
     { title: 'Art', logo: require('../img/art.png'), description: 'Comparte tu opinion acerca del arte.' },

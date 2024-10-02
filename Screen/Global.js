@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, StatusBar,Text, FlatList, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator, Alert, Modal, ViewBase } from 'react-native';
+import {RefreshControl, View, StatusBar,Text, FlatList, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator, Alert, Modal, ViewBase } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Global = ({ navigation } ) => {
   const [userName, setUserName] = useState(null);
   const [userid, setUserid] = useState(null);
+  const [Refreshing, setRefreshing] = useState(false);
 
   const fetchUserName = async () => {
     try {
@@ -35,6 +36,11 @@ const Global = ({ navigation } ) => {
   const [body_C, setbody_C] = useState('');
  
   
+  const onRefresh = async () => {
+fetchData();
+fetchUserName();
+}; 
+
 
   useEffect(() => {
     fetchData();
@@ -175,21 +181,33 @@ const Global = ({ navigation } ) => {
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
         <FlatList
+        refreshControl={
+          <RefreshControl refreshing={Refreshing} onRefresh={onRefresh} />
+        }
           data={data}
           numColumns={1}
           renderItem={({ item }) => (
             <View style={styles.card}>
+            <View style={styles.titleContainer}>
               <Text style={styles.title}>{item.header}</Text>
-              <Text style={styles.body}>{item.body}</Text>
-              <View style={styles.reactions}>
-                <TouchableOpacity style={styles.reaction_icon}>
-                  <MaterialIcons name="favorite" size={24} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => openModal(item.id)} style={styles.reaction_icon}>
-                  <MaterialIcons name="comment" size={24} />
-                </TouchableOpacity>
-              </View>
+              <Text style={styles.timestamp}>{new Date(item.registro).toLocaleString('es-ES', {
+         day: '2-digit',
+         month: 'long',
+         year: 'numeric',
+         hour: '2-digit',
+         minute: '2-digit',
+  })}</Text>
             </View>
+            <Text style={styles.body}>{item.body}</Text>
+            <View style={styles.reactions}>
+              <TouchableOpacity style={styles.reaction_icon}>
+                <MaterialIcons name="favorite" size={24} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => openModal(item.id)} style={styles.reaction_icon}>
+                <MaterialIcons name="comment" size={24} />
+              </TouchableOpacity>
+            </View>
+          </View>
           )}
           keyExtractor={(item) => item.id ? item.id.toString() : ''}
         />
@@ -268,6 +286,17 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  
+  timestamp: {
+    fontSize: 12,
+    color: '#888', // Color gris para el timestamp
+    marginLeft: 8, // Espaciado entre el título y la hora
   },
   title: {
     fontSize: 18,
