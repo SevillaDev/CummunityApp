@@ -152,18 +152,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     color: '#999',
   },
-  googleBtn: {
-    width: '100%',
-    backgroundColor: '#db4437',
-    borderRadius: 5,
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  googleText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
+ 
 });
 
 
